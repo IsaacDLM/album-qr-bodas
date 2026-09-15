@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { supabase } from '../../lib/supabase';
 
 export default async function AdminDashboard() {
@@ -15,9 +16,9 @@ export default async function AdminDashboard() {
     <main className="p-8 font-sans max-w-6xl mx-auto bg-gray-50 min-h-screen">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Panel de Administración</h1>
-        <button className="bg-black text-white px-5 py-2 rounded-md hover:bg-gray-800 transition-colors">
-          + Nuevo Evento
-        </button>
+        <Link href="/admin/nuevo" className="bg-black text-white px-5 py-2 rounded-md hover:bg-gray-800 transition-colors">
+        + Nuevo Evento
+        </Link>
       </div>
 
       <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
