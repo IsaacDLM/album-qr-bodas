@@ -1,15 +1,22 @@
 import Link from 'next/link';
 import { supabase } from '../../lib/supabase';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboard() {
-  // Obtenemos todos los eventos ordenados por fecha de creación
   const { data: events, error } = await supabase
     .from('events')
     .select('*')
     .order('created_at', { ascending: false });
 
   if (error) {
-    return <div className="p-8 text-red-500">Error cargando el panel de control.</div>;
+    // Imprimimos el detalle exacto del error para depurarlo
+    return (
+      <div className="p-8 text-red-500 font-mono">
+        <p>Error cargando el panel de control.</p>
+        <p className="mt-2 text-sm text-gray-600">Detalle: {error.message || JSON.stringify(error)}</p>
+      </div>
+    );
   }
 
   return (
