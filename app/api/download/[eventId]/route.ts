@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '../../../../lib/supabase'; // Ajusta los niveles de carpetas según necesites
+import { supabase } from '../../../../lib/supabase';
 import JSZip from 'jszip';
 
 export async function GET(
   request: Request,
-  { params }: { params: { eventId: string } }
+  { params }: { params: Promise<{ eventId: string }> } // <-- El cambio está aquí (Promise)
 ) {
   const { eventId } = await params;
 
