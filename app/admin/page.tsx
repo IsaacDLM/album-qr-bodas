@@ -53,18 +53,27 @@ export default async function AdminDashboard() {
                 <td className="p-4 font-mono text-sm text-gray-500">
                   {evento.public_token}
                 </td>
-                <td className="p-4 text-right space-x-3">
+                <td className="p-4 text-right space-x-4">
                   <a 
                     href={`/e/${evento.public_token}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-indigo-600 hover:text-indigo-900 text-sm"
+                    className="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
                   >
                     Ver Álbum
                   </a>
-                  <button className="text-gray-400 hover:text-gray-700 text-sm">
-                    Gestionar
-                  </button>
+                  <a 
+                    href={`/admin/gestionar/${evento.id}`} 
+                    className="text-gray-600 hover:text-gray-900 text-sm font-medium"
+                  >
+                    Gestionar Fotos
+                  </a>
+                  <a 
+                    href={`/api/download/${evento.id}`} 
+                    className="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
+                  >
+                    Descargar ZIP
+                  </a>
                 </td>
               </tr>
             ))}
