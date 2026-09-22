@@ -62,6 +62,12 @@ export default async function AdminDashboard() {
                 </td>
                 <td className="p-4 text-right space-x-4">
                   <a 
+                    href={`/admin/qr/${evento.id}`} 
+                    className="text-emerald-600 hover:text-emerald-900 text-sm font-medium"
+                  >
+                    Generar QR
+                  </a>
+                  <a 
                     href={`/e/${evento.public_token}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
